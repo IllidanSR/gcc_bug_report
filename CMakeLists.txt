@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.17)
+project(fail_project)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -nodefaultlibs -lc++ -lc++abi -lm -lc -lgcc_s")
+add_definitions(-fcoroutines)
+add_definitions(-fno-exceptions)
+add_definitions(-fexceptions)
+add_executable(fail_project main.cpp)
+target_link_libraries(${PROJECT_NAME} boost_system pthread)
